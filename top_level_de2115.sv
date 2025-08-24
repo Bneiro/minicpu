@@ -1,3 +1,4 @@
+//topl level para implementacao no Quartus Prime, a placa utilizada nao possuia backlight
 module top_level_de2115 (
     // Clock principal da placa
     input CLOCK_50,
@@ -20,9 +21,7 @@ module top_level_de2115 (
     output LCD_ON
 );
 
-    // ====================================
-    // CONDICIONAMENTO DOS SINAIS
-    // ====================================
+
     
     // Reset global (KEY[0] é ativo baixo)
     wire rst;
@@ -37,9 +36,7 @@ module top_level_de2115 (
     wire [17:0] switches;
     assign switches = SW;
     
-    // ====================================
-    // SINAIS INTERNOS DA CPU
-    // ====================================
+
     
     wire [7:0] lcd_data_internal;
     wire lcd_rs_internal;
@@ -47,9 +44,7 @@ module top_level_de2115 (
     wire lcd_enable_internal;
     wire lcd_on_internal;
     
-    // ====================================
-    // INSTANCIAÇÃO DA MINI CPU
-    // ====================================
+
     
     module_mini_cpu cpu_inst (
         .clk(CLOCK_50), // Usando o clock principal de 50 MHz
@@ -65,9 +60,7 @@ module top_level_de2115 (
         .lcd_on(lcd_on_internal)
     );
     
-    // ====================================
-    // CONEXÕES COM OS PINOS LCD DA PLACA
-    // ====================================
+
     
     assign LCD_DATA = lcd_data_internal;
     assign LCD_RS = lcd_rs_internal;
@@ -75,9 +68,7 @@ module top_level_de2115 (
     assign LCD_EN = lcd_enable_internal;
     assign LCD_ON = lcd_on_internal;
     
-    // ====================================
-    // LEDs DE DEBUG E MONITORAMENTO
-    // ====================================
+
     
     // LEDs vermelhos mostram estado dos switches
     assign LEDR = switches;
