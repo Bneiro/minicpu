@@ -98,15 +98,6 @@ module module_mini_cpu (
         .rd2(mem_rd2)
     );
     
-    // Instanciação da ALU
-    module_alu alu_inst (
-        .opcode(opcode),
-        .a(alu_a),
-        .b(alu_b),
-        .result(alu_result),
-        .zero_flag(alu_zero_flag)
-    );
-    
     // Máquina de estados principal e controle do sistema
     always @(posedge clk or posedge rst) begin
         if (rst) begin
