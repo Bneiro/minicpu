@@ -1,7 +1,6 @@
-// Responsável por executar as operações ADD, ADDI, SUB, SUBI, MUL.
+// Responsável por executar as operações ADD, ADDI, SUB, SUBI, MUL (REMOVIDO E IMPLEMENTADO DIRETAMENTE NA CPU).
 // LOAD, CLEAR e DISPLAY não passam pela ALU (são tratados na CPU).
-// Resultado é assinado de 16 bits, zero_flag indica se o resultado é 0.
-// Mapeamento de opcodes (conforme PDF):
+// Resultado é de 16 bits, zero_flag indica se o resultado é 0.
 // 000 = LOAD (ignorado na ALU)
 // 001 = ADD   (reg/reg)
 // 010 = ADDI  (reg/imm)
